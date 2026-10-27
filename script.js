@@ -1,8 +1,3 @@
-/**
- * BRAINWAVE TUTORIALS - INTERACTIVE BEHAVIORS & VALIDATION
- * "Understand it once. Score for life."
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
   initMobileMenu();
@@ -14,9 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhatsAppTooltip();
 });
 
-/* --------------------------------------------------------------------------
-   1. STICKY HEADER & SCROLL BEHAVIOR
-   -------------------------------------------------------------------------- */
 function initStickyHeader() {
   const header = document.getElementById('navbar');
   if (!header) return;
@@ -30,12 +22,9 @@ function initStickyHeader() {
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // Initial check
+  handleScroll();
 }
 
-/* --------------------------------------------------------------------------
-   2. MOBILE NAVIGATION DRAWER
-   -------------------------------------------------------------------------- */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
@@ -52,7 +41,6 @@ function initMobileMenu() {
 
   toggleBtn.addEventListener('click', toggleMenu);
 
-  // Close mobile menu when any nav link is tapped
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (navMenu.classList.contains('active')) {
@@ -63,7 +51,6 @@ function initMobileMenu() {
     });
   });
 
-  // Close when tapping outside
   document.addEventListener('click', (e) => {
     if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
       toggleBtn.setAttribute('aria-expanded', 'false');
@@ -73,9 +60,6 @@ function initMobileMenu() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   3. ACTIVE NAV LINK SCROLLSPY (INTERSECTION OBSERVER)
-   -------------------------------------------------------------------------- */
 function initSmoothScrollAndSpy() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -106,9 +90,6 @@ function initSmoothScrollAndSpy() {
   sections.forEach(section => observer.observe(section));
 }
 
-/* --------------------------------------------------------------------------
-   4. ANIMATED COUNTERS (JS INTERACTION)
-   -------------------------------------------------------------------------- */
 function initAnimatedCounters() {
   const statsContainer = document.getElementById('statsContainer');
   const counters = document.querySelectorAll('.counter');
@@ -118,14 +99,12 @@ function initAnimatedCounters() {
 
   const animateCounter = (el) => {
     const target = parseInt(el.getAttribute('data-target'), 10);
-    const duration = 1600; // ms
+    const duration = 1600;
     const startTime = performance.now();
 
     const updateCount = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing out cubic
       const easeOut = 1 - Math.pow(1 - progress, 3);
       const currentVal = Math.floor(easeOut * target);
 
@@ -154,9 +133,6 @@ function initAnimatedCounters() {
   observer.observe(statsContainer);
 }
 
-/* --------------------------------------------------------------------------
-   5. INTERACTIVE FAQ ACCORDION
-   -------------------------------------------------------------------------- */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
   if (!faqItems.length) return;
@@ -168,14 +144,12 @@ function initFaqAccordion() {
     questionBtn.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
 
-      // Close all items
       faqItems.forEach(otherItem => {
         otherItem.classList.remove('active');
         const btn = otherItem.querySelector('.faq-question');
         if (btn) btn.setAttribute('aria-expanded', 'false');
       });
 
-      // If it wasn't active, activate it
       if (!isActive) {
         item.classList.add('active');
         questionBtn.setAttribute('aria-expanded', 'true');
@@ -184,9 +158,6 @@ function initFaqAccordion() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   6. COURSE CARD QUICK-SELECT BUTTONS
-   -------------------------------------------------------------------------- */
 function initCourseSelectButtons() {
   const selectBtns = document.querySelectorAll('.select-course-btn');
   const courseDropdown = document.getElementById('studentCourse');
@@ -195,10 +166,9 @@ function initCourseSelectButtons() {
   if (!selectBtns.length || !courseDropdown) return;
 
   selectBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
       const targetCourse = btn.getAttribute('data-target-course');
       if (targetCourse) {
-        // Find matching option in dropdown
         for (let i = 0; i < courseDropdown.options.length; i++) {
           if (courseDropdown.options[i].value === targetCourse) {
             courseDropdown.selectedIndex = i;
@@ -207,7 +177,6 @@ function initCourseSelectButtons() {
         }
       }
 
-      // Smooth scroll to enquiry form
       const enquirySection = document.getElementById('enquiry');
       if (enquirySection) {
         enquirySection.scrollIntoView({ behavior: 'smooth' });
@@ -219,9 +188,6 @@ function initCourseSelectButtons() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   7. ENQUIRY FORM CLIENT-SIDE VALIDATION & MODAL FEEDBACK
-   -------------------------------------------------------------------------- */
 function initEnquiryFormValidation() {
   const form = document.getElementById('enquiryForm');
   const nameInput = document.getElementById('studentName');
@@ -230,7 +196,6 @@ function initEnquiryFormValidation() {
   const courseSelect = document.getElementById('studentCourse');
   const remarksInput = document.getElementById('studentRemarks');
 
-  // Modal elements
   const modal = document.getElementById('successModal');
   const modalName = document.getElementById('modalApplicantName');
   const modalClass = document.getElementById('modalApplicantClass');
@@ -241,10 +206,7 @@ function initEnquiryFormValidation() {
 
   if (!form || !nameInput || !phoneInput || !classSelect) return;
 
-  // Validation regex:
-  // Name: At least 3 chars, letters, spaces and dots allowed
   const nameRegex = /^[a-zA-Z\s.]{3,50}$/;
-  // Phone: Indian 10 digits starting with 6, 7, 8, 9
   const phoneRegex = /^[6-9]\d{9}$/;
 
   const validateField = (input, condition) => {
@@ -259,7 +221,6 @@ function initEnquiryFormValidation() {
     }
   };
 
-  // Real-time validation clearers
   nameInput.addEventListener('input', () => {
     if (nameInput.value.trim().length >= 3) {
       validateField(nameInput, nameRegex.test(nameInput.value.trim()));
@@ -268,7 +229,6 @@ function initEnquiryFormValidation() {
     }
   });
 
-  // Phone input: auto filter non-digits
   phoneInput.addEventListener('input', () => {
     phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
     if (phoneInput.value.length === 10) {
@@ -282,7 +242,6 @@ function initEnquiryFormValidation() {
     validateField(classSelect, classSelect.value !== '');
   });
 
-  // Handle Form Submission
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -291,27 +250,23 @@ function initEnquiryFormValidation() {
     const isClassValid = validateField(classSelect, classSelect.value !== '');
 
     if (!isNameValid || !isPhoneValid || !isClassValid) {
-      // Focus on first invalid field
       if (!isNameValid) nameInput.focus();
       else if (!isPhoneValid) phoneInput.focus();
       else if (!isClassValid) classSelect.focus();
       return;
     }
 
-    // Success payload
     const applicantName = nameInput.value.trim();
     const applicantPhone = phoneInput.value.trim();
     const applicantClass = classSelect.value;
     const applicantCourse = courseSelect ? courseSelect.value : 'General Enquiry';
     const applicantRemarks = remarksInput ? remarksInput.value.trim() : '';
 
-    // Populate Modal
     if (modalName) modalName.textContent = applicantName;
     if (modalClass) modalClass.textContent = applicantClass;
     if (modalPhone) modalPhone.textContent = `+91 ${applicantPhone}`;
     if (modalCourse) modalCourse.textContent = applicantCourse;
 
-    // Generate prefilled WhatsApp URL for the user's convenience
     if (modalWhatsAppBtn) {
       let waMessage = `Hello Anirban Sir, I submitted an admission enquiry on the Brainwave Tutorials website:%0A%0A` +
         `👤 *Name:* ${encodeURIComponent(applicantName)}%0A` +
@@ -326,20 +281,17 @@ function initEnquiryFormValidation() {
       modalWhatsAppBtn.href = `https://wa.me/919000000000?text=${waMessage}`;
     }
 
-    // Show Modal
     if (modal) {
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
-    // Reset Form
     form.reset();
     [nameInput, phoneInput, classSelect].forEach(el => {
       el.classList.remove('is-valid', 'is-invalid');
     });
   });
 
-  // Close Modal handlers
   const closeModal = () => {
     if (modal) {
       modal.classList.remove('active');
@@ -362,9 +314,6 @@ function initEnquiryFormValidation() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   8. WHATSAPP FLOATING TOOLTIP
-   -------------------------------------------------------------------------- */
 function initWhatsAppTooltip() {
   const tooltip = document.getElementById('whatsappTooltip');
   const closeBtn = document.getElementById('closeTooltip');

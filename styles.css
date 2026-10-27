@@ -1,10 +1,5 @@
-/* ==========================================================================
-   BRAINWAVE TUTORIALS - MODERN DESIGN SYSTEM & STYLES
-   "Understand it once. Score for life."
-   ========================================================================== */
-
 :root {
-  /* Color Palette */
+  
   --primary-900: #0b1329;
   --primary-800: #101d3f;
   --primary-700: #1a2f64;
@@ -40,31 +35,30 @@
   --danger-500: #ef4444;
   --danger-100: #fee2e2;
 
-  /* Typography */
+  
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Shadows */
+  
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
   --shadow-glow: 0 10px 25px -5px rgba(37, 99, 235, 0.35);
 
-  /* Radius */
+  
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Transitions */
+  
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s ease;
   --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base Reset & Typography */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -111,7 +105,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Container */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -121,7 +114,6 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 20px;
 }
 
-/* Utilities */
 .text-center { text-align: center; }
 .text-success { color: var(--emerald-600) !important; font-weight: 600; }
 .gradient-text {
@@ -131,7 +123,6 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
 }
 
-/* Top Announcement Bar */
 .top-bar {
   background: var(--primary-900);
   color: var(--neutral-300);
@@ -204,7 +195,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--neutral-600);
 }
 
-/* Header & Sticky Navbar */
 .header {
   position: sticky;
   top: 0;
@@ -231,7 +221,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 72px;
 }
 
-/* Brand Logo */
 .brand-logo {
   display: flex;
   align-items: center;
@@ -277,7 +266,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-500);
 }
 
-/* Navigation Links */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -327,7 +315,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 16px;
 }
 
-/* Mobile Toggle */
 .mobile-toggle {
   display: none;
   background: none;
@@ -359,7 +346,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -456,7 +442,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-glow);
 }
 
-/* Common Section Styles */
 .section {
   padding: 80px 0;
   position: relative;
@@ -497,9 +482,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   HERO SECTION
-   ========================================================================== */
 .hero-section {
   position: relative;
   background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
@@ -659,7 +641,6 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--neutral-200);
 }
 
-/* Hero Visual */
 .visual-card-wrapper {
   position: relative;
 }
@@ -694,7 +675,6 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
-/* Floating Badges */
 .floating-badge {
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
@@ -763,9 +743,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-/* ==========================================================================
-   ABOUT SECTION
-   ========================================================================== */
 .about-section {
   background: var(--neutral-50);
 }
@@ -883,7 +860,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--neutral-900);
 }
 
-/* 4 Pillars */
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -933,9 +909,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 24px;
 }
 
-/* ==========================================================================
-   COURSES SECTION
-   ========================================================================== */
 .courses-section {
   background: var(--white);
 }
@@ -1074,7 +1047,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-/* Batch Alert Box */
 .batch-alert-box {
   background: linear-gradient(135deg, var(--neutral-900) 0%, var(--primary-900) 100%);
   color: var(--white);
@@ -1121,9 +1093,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--white);
 }
 
-/* ==========================================================================
-   RESULTS SECTION
-   ========================================================================== */
 .results-section {
   background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
 }
@@ -1222,9 +1191,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-/* ==========================================================================
-   TESTIMONIALS SECTION
-   ========================================================================== */
 .testimonials-section {
   background: var(--white);
 }
@@ -1328,9 +1294,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--neutral-500);
 }
 
-/* ==========================================================================
-   FAQ SECTION (ACCORDION)
-   ========================================================================== */
 .faq-section {
   background: var(--neutral-50);
 }
@@ -1406,9 +1369,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-/* ==========================================================================
-   ENQUIRY FORM SECTION
-   ========================================================================== */
 .enquiry-section {
   background: linear-gradient(135deg, var(--primary-900) 0%, #1e1b4b 100%);
   color: var(--white);
@@ -1494,7 +1454,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 12px;
 }
 
-/* Form Styles */
 .form-container {
   background: var(--white);
   color: var(--neutral-800);
@@ -1590,7 +1549,6 @@ h1, h2, h3, h4, h5, h6 {
   resize: vertical;
 }
 
-/* Validation States */
 .form-input.is-invalid {
   border-color: var(--danger-500);
   background-color: #fffaf0;
@@ -1624,9 +1582,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 14px;
 }
 
-/* ==========================================================================
-   CONTACT SECTION
-   ========================================================================== */
 .contact-section {
   background: var(--neutral-50);
 }
@@ -1699,7 +1654,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--neutral-500);
 }
 
-/* Mock Map Card */
 .contact-map-card {
   height: 100%;
 }
@@ -1828,9 +1782,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-full);
 }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
 .footer {
   background: var(--primary-900);
   color: var(--neutral-300);
@@ -1926,9 +1877,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 12px;
 }
 
-/* ==========================================================================
-   FLOATING WHATSAPP BUTTON & TOOLTIP
-   ========================================================================== */
 .whatsapp-float-container {
   position: fixed;
   bottom: 28px;
@@ -2010,9 +1958,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ==========================================================================
-   MODAL POPUP (CONFIRMATION)
-   ========================================================================== */
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -2133,9 +2078,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 10px;
 }
 
-/* ==========================================================================
-   RESPONSIVE MEDIA QUERIES
-   ========================================================================== */
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr;
@@ -2212,7 +2154,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .top-bar-right {
-    display: none; /* Keep clean on small mobile */
+    display: none; 
   }
 
   .mobile-toggle {
